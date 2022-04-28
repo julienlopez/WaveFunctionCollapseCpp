@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Point.hpp"
+#include "MultiDimensionalArray.hpp"
 
 #include <vector>
 
@@ -11,22 +11,30 @@ template <class State, std::size_t N> class WaveFunctionCollapse
 {
 public:
 	using Index = Point<std::size_t, N>;
-	using StateContainer = std::vector<State>;
+	using PossibleStateContainer = std::vector<State>;
+	using CurrentStateContainer = MultiDimensionalArray<State, N>;
 
 	WaveFunctionCollapse() = delete;
 
-	WaveFunctionCollapse(StateContainer possible_states)
+	WaveFunctionCollapse(PossibleStateContainer possible_states, Index size)
         : m_possible_states{std::move(possible_states)}
+        , m_current_state{size}
     {
     }
 
-	const StateContainer& possibleStates() const
+	const PossibleStateContainer& possibleStates() const
     {
         return m_possible_states;
     }
 
+    const CurrentStateContainer& currentState() const
+    {
+        return m_current_state;
+    }
+
 private:
-    const StateContainer m_possible_states;
+    const PossibleStateContainer m_possible_states;
+    CurrentStateContainer m_current_state;
 };
 
 } // namespace LibWaveFunctionCollapseCpp

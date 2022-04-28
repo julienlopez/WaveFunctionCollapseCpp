@@ -53,7 +53,7 @@ int main(int argc, const char** argv)
         fmt::print("Hello, from {}\n", "{fmt}");
 
         using WaveFunctionCollapse = LibWaveFunctionCollapseCpp::WaveFunctionCollapse<Tile, 2>;
-        WaveFunctionCollapse wfc{possibleTiles()};
+        WaveFunctionCollapse wfc{possibleTiles(), {5, 4}};
     }
     catch(const std::exception& e)
     {
