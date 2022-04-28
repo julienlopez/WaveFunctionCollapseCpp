@@ -105,7 +105,7 @@ target_compile_features(project_options INTERFACE cxx_std_${CMAKE_CXX_STANDARD})
 add_subdirectory(configured_files)
 
 add_subdirectory(lib)
-add_subdirectory(src)
+add_subdirectory(examples)
 
 # Adding the tests:
 option(ENABLE_TESTING "Enable the tests" ON)

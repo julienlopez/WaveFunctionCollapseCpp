@@ -18,15 +18,12 @@ std::vector<Tile> possibleTiles()
 }
 
 static constexpr auto USAGE =
-    R"(Naval Fate.
+    R"(WaveFunctionCollapse tiles example.
 
     Usage:
-          naval_fate ship new <name>...
-          naval_fate ship <name> move <x> <y> [--speed=<kn>]
-          naval_fate ship shoot <x> <y>
-          naval_fate mine (set|remove) <x> <y> [--moored | --drifting]
-          naval_fate (-h | --help)
-          naval_fate --version
+          tiles --size=<sz>
+          tiles (-h | --help)
+          tiles --version
  Options:
           -h --help     Show this screen.
           --version     Show version.
