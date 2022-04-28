@@ -20,6 +20,11 @@ public:
     {
     }
 
+	const StateContainer& possibleStates() const
+    {
+        return m_possible_states;
+    }
+
 private:
     const StateContainer m_possible_states;
 };
