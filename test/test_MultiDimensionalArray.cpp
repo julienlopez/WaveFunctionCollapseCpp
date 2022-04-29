@@ -1,9 +1,9 @@
 #include <catch2/catch.hpp>
 
 #include "MultiDimensionalArray.hpp"
+#include "Ranges.hpp"
 
-#include <ranges>
-#include <algorithm>
+using LibWaveFunctionCollapseCpp::Ranges::iota;
 
 TEST_CASE("MultiDimensionalArray 1D", "[MultiDimensionalArray]")
 {
@@ -24,7 +24,7 @@ TEST_CASE("MultiDimensionalArray 1D", "[MultiDimensionalArray]")
         const std::size_t length = 5;
         Mda mda{{length}};
         REQUIRE(mda.size() == Mda::Index{length});
-        for(const auto i : std::views::iota((std::size_t)0, length))
+        for(const auto i : iota((std::size_t)0, length))
         {
             mda({i}) = (int)i;
         }
