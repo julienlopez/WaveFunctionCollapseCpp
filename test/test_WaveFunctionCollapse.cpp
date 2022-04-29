@@ -2,7 +2,7 @@
 
 #include "WaveFunctionCollapse.hpp"
 
-TEST_CASE("Factorials are computed", "[factorial]")
+TEST_CASE("WaveFunctionCollapse")
 {
 
 	SECTION("Construction initialize possible states and the starting grid")

@@ -10,9 +10,9 @@ namespace LibWaveFunctionCollapseCpp
 template <class State, std::size_t N> class WaveFunctionCollapse
 {
 public:
-	using Index = Point<std::size_t, N>;
 	using PossibleStateContainer = std::vector<State>;
 	using CurrentStateContainer = MultiDimensionalArray<State, N>;
+	using Index = typename CurrentStateContainer::Index;
 
 	WaveFunctionCollapse() = delete;
 

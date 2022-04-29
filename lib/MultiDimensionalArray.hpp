@@ -2,6 +2,8 @@
 
 #include "Point.hpp"
 
+#include <algorithm>
+#include <numeric>
 #include <vector>
 
 namespace LibWaveFunctionCollapseCpp
@@ -15,22 +17,41 @@ public:
 
     MultiDimensionalArray() = delete;
 
-    MultiDimensionalArray(Index size)
+    explicit MultiDimensionalArray(Index size)
         : m_size{std::move(size)}
+        , m_container(bufferSizeFromIndex(size))
     {
     }
+
+    MultiDimensionalArray(Index size, const T& value)
+        : m_size{std::move(size)}
+        , m_container(bufferSizeFromIndex(size), value)
+    {
+    }
+
     const Index& size() const
     {
         return m_size;
     }
 
-    // T& operator()(const Index& index)
-    // {
-    // }
+    const Container& flatBuffer() const
+    {
+        return m_container;
+    }
+
+    T& operator()(const Index& index)
+    {
+        return m_container[index[0]];
+    }
 
 private:
     const Index m_size;
     Container m_container;
+
+    static std::size_t bufferSizeFromIndex(const Index& index)
+    {
+        return std::reduce(std::begin(index), std::end(index), (std::size_t)0);
+    }
 };
 
 } // namespace LibWaveFunctionCollapseCpp
