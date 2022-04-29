@@ -8,10 +8,11 @@ using LibWaveFunctionCollapseCpp::Ranges::iota;
 TEST_CASE("MultiDimensionalArray 1D", "[MultiDimensionalArray]")
 {
 
+    const auto length = 5_z;
+
     SECTION("Testing construction with initialization")
     {
         using Mda = LibWaveFunctionCollapseCpp::MultiDimensionalArray<int, 1>;
-        const std::size_t length = 5;
         const int init_value = 3;
         const Mda mda{{length}, init_value};
         REQUIRE(mda.size() == Mda::Index{length});
@@ -21,10 +22,9 @@ TEST_CASE("MultiDimensionalArray 1D", "[MultiDimensionalArray]")
     SECTION("Testing the setting operator")
     {
 	    using Mda = LibWaveFunctionCollapseCpp::MultiDimensionalArray<int, 1>;
-        const std::size_t length = 5;
         Mda mda{{length}};
         REQUIRE(mda.size() == Mda::Index{length});
-        for(const auto i : iota((std::size_t)0, length))
+        for(const auto i : iota(0_z, length))
         {
             mda({i}) = (int)i;
         }

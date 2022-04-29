@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Literals.hpp"
 #include "Point.hpp"
 
 #include <numeric>
@@ -49,7 +50,7 @@ private:
 
     static std::size_t bufferSizeFromIndex(const Index& index)
     {
-        return std::reduce(std::begin(index), std::end(index), (std::size_t)0);
+        return std::reduce(std::begin(index), std::end(index), 0_z);
     }
 };
 
