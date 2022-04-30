@@ -10,11 +10,13 @@ target_include_directories(${LIBRARY_TARGET_NAME} INTERFACE "$<BUILD_INTERFACE:$
 
 find_package(fmt CONFIG)
 find_package(spdlog CONFIG)
+find_package(Microsoft.GSL CONFIG)
 
 target_link_libraries(
   ${LIBRARY_TARGET_NAME}
   PUBLIC  fmt::fmt
           spdlog::spdlog
+          Microsoft.GSL::GSL
   PRIVATE project_options
           project_warnings)
 

@@ -3,6 +3,8 @@
 #include "MultiDimensionalArray.hpp"
 #include "Ranges.hpp"
 
+#include <gsl/narrow>
+
 using LibWaveFunctionCollapseCpp::Ranges::iota;
 
 TEST_CASE("MultiDimensionalArray 1D", "[MultiDimensionalArray]")
@@ -26,7 +28,7 @@ TEST_CASE("MultiDimensionalArray 1D", "[MultiDimensionalArray]")
         REQUIRE(mda.size() == Mda::Index{length});
         for(const auto i : iota(0_z, length))
         {
-            mda({i}) = (int)i;
+            mda({i}) = gsl::narrow<int>(i);
         }
         REQUIRE_THAT(mda.flatBuffer(), Catch::Matchers::Equals(std::vector<int>{0, 1, 2, 3, 4}));
     }

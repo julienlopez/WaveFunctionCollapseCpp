@@ -16,7 +16,7 @@ public:
 
 	WaveFunctionCollapse() = delete;
 
-	WaveFunctionCollapse(PossibleStateContainer possible_states, Index size)
+	WaveFunctionCollapse(PossibleStateContainer possible_states, const Index& size)
         : m_possible_states{std::move(possible_states)}
         , m_current_state{size}
     {
