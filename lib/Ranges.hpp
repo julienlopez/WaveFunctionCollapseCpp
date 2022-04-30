@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <algorithm>
+#include <numeric>
 
 namespace LibWaveFunctionCollapseCpp::Ranges
 {
